@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SmartExpiry</title><link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header><div><h1>SmartExpiry</h1><p>Inventory, Expiry & Dead-Stock Loss Prevention</p></div><button id="seed">Load Demo Data</button></header>
+<nav><button data-page="dashboard">Dashboard</button><button data-page="products">Products</button><button data-page="expiry">Expiry Monitor</button><button data-page="sales">Record Sale</button></nav>
+<main>
+<section id="dashboard" class="page"><h2>Dashboard</h2><div class="cards"><div class="card"><b id="pcount">0</b><span>Products</span></div><div class="card"><b id="stock">0</b><span>Total Stock</span></div><div class="card danger"><b id="risk">0</b><span>Expiring ≤ 7 Days</span></div><div class="card"><b id="dead">0</b><span>Dead Stock</span></div></div><h3>Recommended Actions</h3><div id="actions"></div></section>
+<section id="products" class="page hidden"><h2>Products & Batches</h2><form id="productForm"><input id="name" placeholder="Product name" required><input id="batch" placeholder="Batch no" required><input id="qty" type="number" min="0" placeholder="Quantity" required><input id="price" type="number" min="0" step="0.01" placeholder="Selling price" required><input id="expiryDate" type="date" required><button>Add Product</button></form><div class="tablewrap"><table><thead><tr><th>Product</th><th>Batch</th><th>Qty</th><th>Price</th><th>Expiry</th></tr></thead><tbody id="productRows"></tbody></table></div></section>
+<section id="expiry" class="page hidden"><h2>Expiry Monitor</h2><p>Products are classified by remaining shelf life.</p><div class="tablewrap"><table><thead><tr><th>Product</th><th>Batch</th><th>Stock</th><th>Days Left</th><th>Risk</th><th>Recommendation</th></tr></thead><tbody id="expiryRows"></tbody></table></div></section>
+<section id="sales" class="page hidden"><h2>Record Sale</h2><form id="saleForm"><select id="saleProduct"></select><input id="saleQty" type="number" min="1" placeholder="Quantity" required><button>Record Sale</button></form><p id="saleMsg"></p><h3>Recent Sales</h3><div id="salesList"></div></section>
+</main><footer>SmartExpiry • DBMS / Web Development Project</footer><script src="js/app.js"></script>
+</body></html>
